@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         Archivo.cpp \
+        Integracion.cpp \
         LZ78.cpp \
         OperacionB.cpp \
         RLE.cpp \
@@ -12,9 +13,12 @@ SOURCES += \
 
 HEADERS += \
     Archivo.h \
+    Integracion.h \
     LZ78.h \
     OperacionB.h \
     RLE.h
 
 DISTFILES += \
+    compresionlz78.txt \
+    integrar.txt \
     resultado.txt

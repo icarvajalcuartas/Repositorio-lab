@@ -3,6 +3,7 @@
 #include"RLE.h"
 #include"OperacionB.h"
 #include"LZ78.h"
+#include"Integracion.h"
 using namespace std;
 
 int main()
@@ -11,7 +12,8 @@ int main()
     cout << "(1) Compresion y decompresion con RLE.\n"
             "(2) Compresion y ddecompresin con ZL78 donde se elige la cadena de caracteres.\n"
             "(3) Compresion y decompresion con ZL78 donde se escogen 2 cadenas predeterminadas (pruebas)\n"
-            "(4) Encriptacion y desencriptacion con operaciones binarias." << endl;
+            "(4) Encriptacion y desencriptacion con operaciones binarias.\n"
+            "(5) Compresion y decompresion de un archivo" << endl;
     cout << "Ingrese un numero para seleccionar el metodo a utilizar:" << endl;
     cin>>metodo;
     cin.ignore();
@@ -66,17 +68,9 @@ int main()
         }
         case(2):{
             char text1[200]="";
-            unsigned short int des;
             cout<<"Ingrese el texto que desea encriptar:"<<endl;
             cin.getline(text1,200);
-            cout<<"Ingrese 1 si desea desencriptar y validar con el original, de lo contrario orpima 0:"<<endl;
-            cin>>des;
-            if(des==1){
-                compressLZ78(text1,true);
-            }
-            else if(des==0){
-                compressLZ78(text1,false);
-            }
+            compressLZ78(text1,true);
             break;
         }
         case (3):{
@@ -94,6 +88,12 @@ int main()
                 compressLZ78(textb,true);
             }
             break;
+        }
+        case(5):{
+            bool rle;
+            cout<<"Ingrese el metodo de compresion con el cual desea trabajar: (0) LZ78 (1) rle"<<endl;
+            cin>>rle;
+            metodoCompresion(rle);
         }
         default:
             break;

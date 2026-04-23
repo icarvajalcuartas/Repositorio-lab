@@ -41,8 +41,52 @@ char* decompressLZ78(Entry* dict, int size) {
     resultado[r] = '\0';
     return resultado;
 }
+bool comparacion(char* descomprimido,const char *input,bool des){
+    if(des){
+            cout << "Texto: ";
+        for(int i = 0; descomprimido[i] != '\0'; i++){
+            cout << descomprimido[i];
+        }
+        cout << endl;
+        bool iguales = true;
 
-void compressLZ78(const char* input, bool des) {
+        for(int i = 0; ; i++){
+            if(input[i] != descomprimido[i]){
+                iguales = false;
+                break;
+            }
+            if(input[i] == '\0') break;
+        }
+
+        if(iguales){
+            cout << "Son iguales\n"<<endl;
+            return true;
+        }
+        else{
+            cout << "Son diferentes\n"<<endl;
+            return false;
+        }
+    }
+    else{
+        bool iguales = true;
+
+        for(int i = 0; ; i++){
+            if(input[i] != descomprimido[i]){
+                iguales = false;
+                break;
+            }
+            if(input[i] == '\0') break;
+        }
+
+        if(iguales){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+char* compressLZ78(const char* input, bool des) {
     Entry* dict = new Entry[1000]; // tamaño fijo simple
     int dictSize = 1; // índice 0 vacío
 
@@ -72,32 +116,17 @@ void compressLZ78(const char* input, bool des) {
         dictSize++;
     }
 
+    char* descomprimido;
+    cout<<dictSize<<endl;
+    descomprimido=decompressLZ78(dict,dictSize);
     if(des){
-        char* descomprimido;
-        cout<<dictSize<<endl;
-        descomprimido=decompressLZ78(dict,dictSize);
-        cout << "Texto: ";
-        for(int i = 0; descomprimido[i] != '\0'; i++){
-            cout << descomprimido[i];
-        }
-        cout << endl;
-        bool iguales = true;
-
-        for(int i = 0; ; i++){
-            if(input[i] != descomprimido[i]){
-                iguales = false;
-                break;
-            }
-            if(input[i] == '\0') break;
-        }
-
-        if(iguales){
-            cout << "Son iguales"<<endl;
-        }
-        else{
-            cout << "Son diferentes"<<endl;
-        }
-        cout << endl;
+        comparacion(descomprimido,input,des);
+        delete[] dict;
+        return nullptr;
     }
-    delete[] dict;
+    else{
+        delete[]dict;
+        return descomprimido;
+    }
+
 }

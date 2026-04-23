@@ -1,9 +1,9 @@
 --- ORIGINAL ---
-?''kwaoenmc
+holaaa 2222
 
 --- COMPRIMIDO ---
-?1'2k1w1a1o1e1n1m1c1
+h1o1l1a3 124
 
 --- DESCOMPRIMIDO ---
-?''kwaoenmc
+holaaa                                                                                                                            
 
