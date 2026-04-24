@@ -25,7 +25,6 @@ void escribirArchivo(const string& nombre, const string& contenido) {
     archivo << contenido;
     archivo.close();
 
-    // cout << "Archivo creado: " << nombre << endl;
 
 }
 void limpiarArchivo(const string& nombre) {

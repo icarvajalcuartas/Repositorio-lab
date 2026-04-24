@@ -13,7 +13,8 @@ int main()
             "(2) Compresion y ddecompresin con ZL78 donde se elige la cadena de caracteres.\n"
             "(3) Compresion y decompresion con ZL78 donde se escogen 2 cadenas predeterminadas (pruebas)\n"
             "(4) Encriptacion y desencriptacion con operaciones binarias.\n"
-            "(5) Compresion y decompresion de un archivo" << endl;
+            "(5) Compresion y decompresion de un archivo con RLE\n";
+    cout<<"(6) Compresion y descompresion de un archivo con LZ78\n"<<endl;
     cout << "Ingrese un numero para seleccionar el metodo a utilizar:" << endl;
     cin>>metodo;
     cin.ignore();
@@ -68,32 +69,37 @@ int main()
         }
         case(2):{
             char text1[200]="";
+            char* comprimido = nullptr;
+            int x;
             cout<<"Ingrese el texto que desea encriptar:"<<endl;
             cin.getline(text1,200);
-            compressLZ78(text1,true);
+            compressLZ78(text1,true,comprimido,x);
             break;
         }
         case (3):{
             char texta[]="ABRACADABRARABARABARA";
             char textb[]="ABAABABAABBBBBBBBB";
             char sel;
+            char* comprimido = nullptr;
+            int x;
             cout<<"Escoja el texto que desea encriptar:"<<endl;
             cout<<"A: ABRACADABRARABARABARA"<<endl;
             cout<<"B: ABAABABAABBBBBBBBB"<<endl;
             cin>>sel;
             if(sel=='A'||sel=='a'){
-                compressLZ78(texta,true);
+                compressLZ78(texta,true,comprimido,x);
             }
             else if(sel=='B'||sel=='b'){
-                compressLZ78(textb,true);
+                compressLZ78(textb,true,comprimido,x);
             }
             break;
         }
         case(5):{
-            bool rle;
-            cout<<"Ingrese el metodo de compresion con el cual desea trabajar: (0) LZ78 (1) rle"<<endl;
-            cin>>rle;
-            metodoCompresion(rle);
+            metRle();
+        }
+        case(6):{
+            metLz78();
+            break;
         }
         default:
             break;

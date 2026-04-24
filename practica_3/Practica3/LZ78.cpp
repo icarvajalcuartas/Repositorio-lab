@@ -86,13 +86,14 @@ bool comparacion(char* descomprimido,const char *input,bool des){
         }
     }
 }
-char* compressLZ78(const char* input, bool des) {
+char* compressLZ78(const char* input, bool des, char* &compressed,int &x) {
     Entry* dict = new Entry[1000]; // tamaño fijo simple
     int dictSize = 1; // índice 0 vacío
-
+    x=0;
     int currentPrefix = 0;
 
-    cout << "Salida (indice, caracter):\n";
+    if(des){
+        cout << "Salida (indice, caracter):\n";}
 
     for (int i = 0; input[i] != '\0'; i++) {
         char c = input[i];
@@ -102,8 +103,15 @@ char* compressLZ78(const char* input, bool des) {
         if (index != -1) {
             currentPrefix = index;
         } else {
-            cout << "(" << currentPrefix << ", " << c << ")\n";
 
+            if(compressed != nullptr){
+                compressed[x]=(char)currentPrefix;
+                compressed[x+1]=c;
+                x+=2;
+            }
+            else{
+                cout << "(" << currentPrefix << ", " << c << ")\n";
+            }
             dict[dictSize].prefix = currentPrefix;
             dict[dictSize].c = c;
             dictSize++;
@@ -111,13 +119,24 @@ char* compressLZ78(const char* input, bool des) {
             currentPrefix = 0;
         }
     }
+
+
     if(currentPrefix != 0){
+        if (compressed != nullptr) {
+            compressed[x] = (char)currentPrefix;
+            compressed[x+1] = '\0';
+            x += 2;
+        } else {
+            cout << "(" << currentPrefix << ", \\0)\n";
+        }
+
         dict[dictSize] = dict[currentPrefix];
         dictSize++;
     }
+    if (compressed != nullptr) compressed[x] = '\0';
 
     char* descomprimido;
-    cout<<dictSize<<endl;
+    //cout<<dictSize<<endl;
     descomprimido=decompressLZ78(dict,dictSize);
     if(des){
         comparacion(descomprimido,input,des);

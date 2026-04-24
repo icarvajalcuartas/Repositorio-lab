@@ -20,5 +20,6 @@ HEADERS += \
 
 DISTFILES += \
     compresionlz78.txt \
+    compresionrle.txt \
     integrar.txt \
     resultado.txt

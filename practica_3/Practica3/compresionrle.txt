@@ -1,0 +1,24 @@
+
+========== LÍNEA 1 ==========
+--- ORIGINAL ---
+fergalicious so delicious
+
+--- COMPRIMIDO ---
+f1e1r1g1a1l1i1c1i1o1u1s1 1s1o1 1d1e1l1i1c1i1o1u1s1
+
+--- DESCOMPRIMIDO ---
+fergalicious so delicious
+
+La descompresion produjo exitosamente el texto inicial.
+
+========== LÍNEA 2 ==========
+--- ORIGINAL ---
+i aint
+
+--- COMPRIMIDO ---
+i1 1a1i1n1t1
+
+--- DESCOMPRIMIDO ---
+i aint
+
+La descompresion produjo exitosamente el texto inicial.
