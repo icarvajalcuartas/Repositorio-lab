@@ -1,24 +1,20 @@
 
 ========== LÍNEA 1 ==========
 --- ORIGINAL ---
-fergalicious so delicious
+Mi nombre es Isabella
 
 --- COMPRIMIDO ---
-f1e1r1g1a1l1i1c1i1o1u1s1 1s1o1 1d1e1l1i1c1i1o1u1s1
+M1i1 1n1o1m1b1r1e1 1e1s1 1I1s1a1b1e1l2a1
 
 --- DESCOMPRIMIDO ---
-fergalicious so delicious
+Mi nombre es Isabella
 
 La descompresion produjo exitosamente el texto inicial.
 
 ========== LÍNEA 2 ==========
 --- ORIGINAL ---
-i aint
+cedula:1094903251
 
 --- COMPRIMIDO ---
-i1 1a1i1n1t1
+c1e1d1u1l1a1:111019141910131215111
 
---- DESCOMPRIMIDO ---
-i aint
-
-La descompresion produjo exitosamente el texto inicial.
