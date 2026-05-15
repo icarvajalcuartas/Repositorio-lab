@@ -1,0 +1,19 @@
+PUNTO A PUNTO
+A;B;1
+B;C;2
+C;D;3
+D;E;4
+EN ESTRELLA
+A;B;3
+A;C;6
+A;D;9
+A;E;12
+A;F;15
+EN MALLA
+A;D;1
+A;E;2
+B;A;9
+B;D;3
+B;E;7
+D;C;8
+C;E;5

@@ -40,6 +40,17 @@ void Enrutador::limpiarVecinos()
     vecinos.clear();
 }
 
+bool Enrutador::actualizarCostoVecino(Enrutador *vecino, int nuevoCosto)
+{
+    for (auto& par:vecinos) {
+        if (par.first==vecino) {
+            par.second=nuevoCosto;
+            return true;
+        }
+    }
+    return false;
+}
+
 
 char Enrutador::getIdentificador() const
 {
