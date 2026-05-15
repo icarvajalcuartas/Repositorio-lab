@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Red.h"
-
+#include"Gestor.h"
 int main() {
     cout<<"************MENU PARA ENRUTADORES Y REDES************"<<endl;
     unsigned short int opt;
@@ -44,7 +44,6 @@ int main() {
                             cout<<"Ingrese el costo de la conexion: "<<endl;
                             cin>>costo;
                             redCon.agregarConexion(con1,con2,costo);
-                            redCon.calcularTablas();
                             break;
                         }case(3):{
                             redCon.imprimirTopologia();
@@ -87,6 +86,9 @@ int main() {
                 break;
         }case(2):{
             cout<<"********Haciendo calculo por archivo.*******"<<endl;
+            Gestor gestor;
+            gestor.cargarDesdeArchivo("redes.txt");
+            gestor.imprimir();
             break;
         }default:
             break;

@@ -19,6 +19,7 @@ public:
     void reiniciarTabla();
     void imprimirFilaTabla(const vector<char>& destinos)const;
     void limpiarVecinos();
+    bool actualizarCostoVecino(Enrutador* vecino, int nuevoCosto);
 
     char getIdentificador() const;
     unsigned int getCostoA(char destino) const;

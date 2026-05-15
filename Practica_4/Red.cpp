@@ -62,9 +62,21 @@ void Red::agregarConexion(char origen, char destino, int costo)
         cout<<"Enrutador no encontrado \n";
         return;
     }
+    for (auto& c:conexiones) {
+        if ((c.origen==o && c.destino==d) ||
+            (c.origen==d && c.destino==o)) {
+            cout << "Conexion ya existente. Actualizando costo a " << costo << "\n";
+            c.costo = costo;
+            o->actualizarCostoVecino(d, costo);
+            d->actualizarCostoVecino(o, costo);
+            calcularTablas();
+            return;
+        }
+    }
     o->nuevoVecino(d,costo);
     d->nuevoVecino(o,costo);
     conexiones.push_back({o,d,costo});
+    calcularTablas();
 
 }
 
