@@ -1,0 +1,8 @@
+EN MALLA
+A;D;1
+A;E;2
+B;A;9
+B;D;3
+B;E;7
+D;C;8
+C;E;5

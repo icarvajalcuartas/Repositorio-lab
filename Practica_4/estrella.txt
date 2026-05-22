@@ -1,0 +1,6 @@
+EN ESTRELLA
+A;B;3
+A;C;6
+A;D;9
+A;E;12
+A;F;15

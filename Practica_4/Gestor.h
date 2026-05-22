@@ -15,6 +15,7 @@ private:
 public:
     Gestor();
     void cargarDesdeArchivo(const string& nombreArchivo);
+    Red* cargarRedDesdeArchivo(const string& nombreArchivo);
     void imprimir() const;
     ~Gestor();
 };

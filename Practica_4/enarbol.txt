@@ -1,0 +1,8 @@
+EN ARBOL
+A;B;2
+A;C;4
+B;D;6
+B;E;8
+B;F;10
+C;G;12
+C;H;14
