@@ -87,6 +87,63 @@ void Gestor::cargarDesdeArchivo(const string &nombreArchivo)
 
 }
 
+Red *Gestor::cargarRedDesdeArchivo(const string &nombreArchivo)
+{
+    ifstream archivo(nombreArchivo);
+    if (!archivo.is_open()){
+        cout<<"No se pudo abrir el archivo: "<<nombreArchivo<<"\n";
+        return nullptr;
+    }
+
+    Red* red = new Red();
+    string linea;
+    bool primeraLinea=true;
+
+    while (getline(archivo, linea)){
+        if (!linea.empty() && linea.back() == '\r'){
+            linea.pop_back();
+        }
+
+        if (linea.empty()) continue;
+
+        if (primeraLinea) {
+            cout<<"=== Topologia: "<< linea <<" ===\n";
+            primeraLinea = false;
+            continue;
+        }
+        vector<string> partes;
+        string actual;
+        for (char c:linea) {
+            if (c == ';') {
+                partes.push_back(actual);
+                actual = "";
+            }
+            else{
+                actual += c;
+            }
+        }
+        partes.push_back(actual);
+
+        if ((int)partes.size() != 3) continue;
+
+        char origen  = partes[0][0];
+        char destino = partes[1][0];
+
+        while (!partes[2].empty() &&
+               (partes[2].back() == ' '||partes[2].back()=='\r'))
+            partes[2].pop_back();
+
+        int costo = stoi(partes[2]);
+
+        if (!red->buscar(origen))  red->agregarEnrutador(origen);
+        if (!red->buscar(destino)) red->agregarEnrutador(destino);
+        red->agregarConexion(origen, destino, costo);
+    }
+
+    archivo.close();
+    return red;
+}
+
 void Gestor::imprimir() const
 {
     for(int i=0;i<(int)redes.size();i++) {

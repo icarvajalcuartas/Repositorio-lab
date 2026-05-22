@@ -15,4 +15,8 @@ HEADERS += \
     Red.h
 
 DISTFILES += \
+    enarbol.txt \
+    estrella.txt \
+    malla.txt \
+    puntoapunto.txt \
     redes.txt
